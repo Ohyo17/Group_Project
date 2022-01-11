@@ -1,6 +1,6 @@
 import socket
 HOST = ""
-PORT = 8889
+PORT = 8888
 
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s :
@@ -14,11 +14,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s :
                print("Connected to", addr2)
                while True:
                      conn1.sendall(b"\n")
+                     conn2.sendall(b"\n")
                      data = b""
                      while not data:
                            data = conn1.recv(1024)
                      conn2.sendall(data)
-                     conn2.sendall(b"\n")
                      data = b""
                      while not data:
                             data = conn2.recv(1024)
